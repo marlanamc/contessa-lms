@@ -259,6 +259,7 @@ export const martiniGuide: InteractiveGuideContent = {
                 "Olive or twist? — 'Twist'"
             ],
             showExamples: true,
+            exampleStyle: "flow",
             exercises: [
                 {
                     title: "Decision Tree Mastery",
@@ -346,8 +347,113 @@ export const martiniGuide: InteractiveGuideContent = {
             ]
         },
         {
-            id: "vermouth",
+            id: "types-of-vodka",
             stepNumber: 4,
+            title: "Types of Vodka",
+            icon: "🌾",
+            explanation: `
+                <div style="font-family: Georgia, serif; line-height: 1.8; color: #1a202c;">
+                    <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #5e6b7d;">
+                        When a guest orders a vodka martini, they may specify a brand—or ask for a style. Knowing the basics helps you guide them and communicate accurately.
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">By Base Ingredient</p>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #5e6b7d;">
+                            <li style="margin: 0.5rem 0;"><strong>Wheat:</strong> Soft, smooth, slightly sweet—Grey Goose, Absolut, Ketel One. Most common premium style.</li>
+                            <li style="margin: 0.5rem 0;"><strong>Potato:</strong> Creamier, earthy—Chopin, Luksusowa. Less common, distinctive mouthfeel.</li>
+                            <li style="margin: 0.5rem 0;"><strong>Rye:</strong> Spicier, grain-forward—Belvedere, Stolichnaya. More character than neutral wheat.</li>
+                            <li style="margin: 0.5rem 0;"><strong>Corn:</strong> Slightly sweet—Tito's, many American craft vodkas.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Common Brands to Know</p>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #5e6b7d;">
+                            <li style="margin: 0.5rem 0;"><strong>Grey Goose:</strong> French, wheat—smooth, premium, widely requested</li>
+                            <li style="margin: 0.5rem 0;"><strong>Belvedere:</strong> Polish, rye—slightly richer, premium</li>
+                            <li style="margin: 0.5rem 0;"><strong>Ketel One:</strong> Dutch, wheat—clean, approachable</li>
+                            <li style="margin: 0.5rem 0;"><strong>Tito's:</strong> American, corn—smooth, popular value pick</li>
+                            <li style="margin: 0.5rem 0;"><strong>Chopin:</strong> Polish, potato—creamy, distinctive</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">How to Ask</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            "House vodka or a specific brand?" If they name one, repeat it clearly to the bartender. If not, house vodka (e.g., Grey Goose) is the default.
+                        </p>
+                    </div>
+                </div>
+            `,
+            examples: [
+                "Grey Goose—most requested premium vodka",
+                "Tito's—popular American, often requested as 'Tito's martini'",
+                "Belvedere—Polish rye, slightly richer",
+                "'House vodka' or 'well'—bar's default when no brand specified"
+            ],
+            showExamples: false,
+            exercises: []
+        },
+        {
+            id: "types-of-gin",
+            stepNumber: 5,
+            title: "Types of Gin",
+            icon: "🌿",
+            explanation: `
+                <div style="font-family: Georgia, serif; line-height: 1.8; color: #1a202c;">
+                    <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #5e6b7d;">
+                        Gin styles vary dramatically. Juniper is the common thread, but the botanical profile makes each type distinct. Guests who specify a gin often have strong preferences.
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">London Dry</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Juniper-forward, crisp, dry. No sugar added. <strong>Tanqueray</strong>, <strong>Beefeater</strong>, <strong>Bombay Sapphire</strong>. This is the classic martini gin—bold, traditional, what most people think of as "gin."
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Plymouth</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Softer than London Dry, earthier, less juniper-forward. Single distillery in Plymouth, UK. Often preferred in a martini for a smoother, rounder profile.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">New American / Contemporary</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Citrus, floral, or botanical-forward—juniper is a supporting note. <strong>Hendrick's</strong> (cucumber, rose), <strong>Aviation</strong> (lavender, cardamom), <strong>The Botanist</strong>. Guests who want a "softer" or "less junipery" martini often prefer these.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Old Tom</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Slightly sweeter, historical style. Hayman's, Ransom. Less common in martinis—more often used in Tom Collins or other cocktails.
+                        </p>
+                    </div>
+
+                    <div>
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">How to Ask</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            "House gin or do you have a preference?" Common requests: Tanqueray, Hendrick's, Bombay Sapphire, Beefeater. Confirm the exact brand to the bartender.
+                        </p>
+                    </div>
+                </div>
+            `,
+            examples: [
+                "Tanqueray—classic London Dry, juniper-forward",
+                "Hendrick's—cucumber/rose, for guests who want a softer martini",
+                "Plymouth—smooth, rounder, less aggressive",
+                "Bombay Sapphire—approachable London Dry"
+            ],
+            showExamples: false,
+            exercises: []
+        },
+        {
+            id: "vermouth",
+            stepNumber: 7,
             title: "Vermouth: The Essential Element",
             icon: "🍯",
             explanation: `
@@ -414,7 +520,7 @@ export const martiniGuide: InteractiveGuideContent = {
         },
         {
             id: "temperature-texture",
-            stepNumber: 5,
+            stepNumber: 8,
             title: "Temperature & Texture: Stirred vs. On the Rocks",
             icon: "❄️",
             explanation: `
@@ -479,7 +585,7 @@ export const martiniGuide: InteractiveGuideContent = {
         },
         {
             id: "garnish",
-            stepNumber: 6,
+            stepNumber: 9,
             title: "The Finishing Touch: Garnish",
             icon: "🍋",
             explanation: `
@@ -538,8 +644,107 @@ export const martiniGuide: InteractiveGuideContent = {
             ]
         },
         {
+            id: "martini-variations",
+            stepNumber: 10,
+            title: "Martini Variations: What Guests Might Order",
+            icon: "🍸",
+            explanation: `
+                <div style="font-family: Georgia, serif; line-height: 1.8; color: #1a202c;">
+                    <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #5e6b7d;">
+                        Guests don't always say "gin martini, dry, up with a twist." They use shorthand or specific terms. Here's what each variation means and what to clarify.
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Classic / Standard Martini</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Typically <strong>gin</strong>, dry vermouth (traditional 6:1 or dry ratio), stirred, up. If they say "classic," confirm gin and stirred up—then ask twist or olive.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Dry Martini</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Minimal vermouth (9:1 or 12:1). Spirit dominates. Can be gin or vodka—<em>ask which spirit</em>.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Extra Dry / Bone Dry / Churchill</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Vermouth rinse only, or "glance at the vermouth bottle." Almost no vermouth. Churchill famously preferred no vermouth—just chilled gin.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Wet Martini</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            More vermouth—traditional 6:1 or even 4:1. Vermouth is a noticeable presence. Good for guests who like herbal complexity.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">50/50 Martini</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Equal parts gin and dry vermouth. Vermouth-forward, sophisticated. Usually gin—confirm.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Dirty Martini</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Olive brine added—typically ¼ to ½ oz. Salty, savory. Usually vodka, but can be gin. <strong>Confirm:</strong> "Vodka dirty? How dirty—a splash or extra dirty?"
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Gibson</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Martini garnished with <strong>cocktail onions</strong> instead of olive or twist. Can be gin or vodka—ask. "Gin Gibson, dry, up" is a common order.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Vesper</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            <strong>James Bond's drink.</strong> Gin + vodka + Lillet (not dry vermouth). Lemon twist. Ratio: 3:1:½. If ordered, the bartender will know—just communicate "Vesper" clearly.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Kangaroo / Vodka Martini</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Same as a martini but vodka base. "Kangaroo" is an older term—most guests just say "vodka martini."
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Shaken vs. Stirred</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            Purists prefer stirred—cleaner, silkier. Bond famously orders "shaken, not stirred," which aerates and dilutes more. If a guest says "shaken," communicate that explicitly.
+                        </p>
+                    </div>
+
+                    <div>
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.75rem 0; font-weight: 600;">Pro Tip</p>
+                        <p style="font-size: 1rem; margin: 0; color: #5e6b7d;">
+                            When a guest names a variation (e.g., "Gibson," "Dirty"), still confirm spirit (gin/vodka), vermouth level, and up vs. rocks if not specified. Don't assume.
+                        </p>
+                    </div>
+                </div>
+            `,
+            examples: [
+                "'Dirty martini' → vodka or gin? how dirty? olive garnish",
+                "'Gibson' → gin or vodka? dry or extra dry?",
+                "'Vesper' → bartender knows recipe; confirm up with twist",
+                "'50/50' → usually gin; confirm"
+            ],
+            showExamples: true,
+            exampleStyle: "flow",
+            exercises: []
+        },
+        {
             id: "guest-scenarios",
-            stepNumber: 7,
+            stepNumber: 11,
             title: "Real Guest Scenarios",
             icon: "👥",
             explanation: `
@@ -602,6 +807,7 @@ export const martiniGuide: InteractiveGuideContent = {
                 "Scenario 4: Listen—if a guest has specific preferences, follow their lead"
             ],
             showExamples: true,
+            exampleStyle: "flow",
             exercises: [
                 {
                     title: "Scenario Handling",
@@ -624,7 +830,7 @@ export const martiniGuide: InteractiveGuideContent = {
         },
         {
             id: "communication",
-            stepNumber: 8,
+            stepNumber: 12,
             title: "Communicating with the Bartender",
             icon: "📝",
             explanation: `
@@ -678,6 +884,7 @@ export const martiniGuide: InteractiveGuideContent = {
                 "'Two martinis: one gin dry up with twist, one vodka on rocks with olive' — Precise for multiple orders"
             ],
             showExamples: true,
+            exampleStyle: "flow",
             exercises: [
                 {
                     title: "Communication Clarity",
@@ -697,6 +904,88 @@ export const martiniGuide: InteractiveGuideContent = {
                     ]
                 }
             ]
+        },
+        {
+            id: "cheat-sheet",
+            stepNumber: 13,
+            title: "Quick Reference Cheat Sheet",
+            icon: "📋",
+            explanation: `
+                <div style="font-family: Georgia, serif; line-height: 1.8; color: #1a202c;">
+                    <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #5e6b7d;">
+                        Keep this handy. When in doubt, ask—but this gives you the language and structure you need.
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f8f6f2; border-radius: 8px; border: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #1b4d3e; margin: 0 0 1rem 0; font-weight: 700;">Decision Tree (Order of Questions)</p>
+                        <ol style="margin: 0; padding-left: 1.25rem; color: #2b3a4a; font-size: 0.95rem;">
+                            <li><strong>Spirit:</strong> Gin or vodka? (Brand if specified)</li>
+                            <li><strong>Vermouth:</strong> Traditional, dry, or extra dry?</li>
+                            <li><strong>Temp/Presentation:</strong> Stirred up, or on the rocks?</li>
+                            <li><strong>Garnish:</strong> Twist, olive, or onion (Gibson)?</li>
+                        </ol>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f8f6f2; border-radius: 8px; border: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #1b4d3e; margin: 0 0 1rem 0; font-weight: 700;">Spirit Cheat Sheet</p>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Vodka</strong></td><td style="padding: 0.5rem 0;">Grey Goose, Belvedere, Ketel One, Tito's, Chopin</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Gin (London Dry)</strong></td><td style="padding: 0.5rem 0;">Tanqueray, Beefeater, Bombay Sapphire</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Gin (Contemporary)</strong></td><td style="padding: 0.5rem 0;">Hendrick's, Aviation, The Botanist</td></tr>
+                            <tr><td style="padding: 0.5rem 0;"><strong>Gin (Plymouth)</strong></td><td style="padding: 0.5rem 0;">Plymouth—softer, rounder</td></tr>
+                        </table>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f8f6f2; border-radius: 8px; border: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #1b4d3e; margin: 0 0 1rem 0; font-weight: 700;">Vermouth Levels</p>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Traditional / Wet</strong></td><td style="padding: 0.5rem 0;">6:1 ratio—balanced, vermouth noticeable</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Dry</strong></td><td style="padding: 0.5rem 0;">9:1 or 12:1—spirit dominates</td></tr>
+                            <tr><td style="padding: 0.5rem 0;"><strong>Extra Dry / Bone Dry</strong></td><td style="padding: 0.5rem 0;">Rinse only or none</td></tr>
+                        </table>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f8f6f2; border-radius: 8px; border: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #1b4d3e; margin: 0 0 1rem 0; font-weight: 700;">Martini Variations at a Glance</p>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Classic</strong></td><td style="padding: 0.5rem 0;">Gin, dry, stirred up, twist or olive</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Dry</strong></td><td style="padding: 0.5rem 0;">Minimal vermouth—gin or vodka</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Extra Dry</strong></td><td style="padding: 0.5rem 0;">Vermouth rinse or none</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Wet</strong></td><td style="padding: 0.5rem 0;">More vermouth (6:1 or 4:1)</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>50/50</strong></td><td style="padding: 0.5rem 0;">Equal gin + vermouth</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Dirty</strong></td><td style="padding: 0.5rem 0;">Olive brine added—usually vodka</td></tr>
+                            <tr style="border-bottom: 1px solid #e2ddd5;"><td style="padding: 0.5rem 0;"><strong>Gibson</strong></td><td style="padding: 0.5rem 0;">Cocktail onions instead of olive/twist</td></tr>
+                            <tr><td style="padding: 0.5rem 0;"><strong>Vesper</strong></td><td style="padding: 0.5rem 0;">Gin + vodka + Lillet, lemon twist</td></tr>
+                        </table>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f8f6f2; border-radius: 8px; border: 1px solid #e2ddd5;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #1b4d3e; margin: 0 0 1rem 0; font-weight: 700;">Garnish Guide</p>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: #2b3a4a; font-size: 0.95rem;">
+                            <li><strong>Twist:</strong> Lemon peel, expressed—bright, citrusy</li>
+                            <li><strong>Olive:</strong> Castelvetrano or green—herbaceous, traditional</li>
+                            <li><strong>Onion:</strong> Gibson—cocktail onions, slightly sweet</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: 1.25rem; background-color: #f0ede8; border-left: 4px solid #8b1c31; border-radius: 8px;">
+                        <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8b1c31; margin: 0 0 0.5rem 0; font-weight: 700;">Order Format (Communicate to Bartender)</p>
+                        <p style="font-size: 1rem; margin: 0; color: #2b3a4a; font-family: monospace;">
+                            [Spirit] martini, [vermouth level], [up / rocks] with [garnish]
+                        </p>
+                        <p style="font-size: 0.9rem; margin: 0.75rem 0 0 0; color: #5e6b7d;">
+                            Example: "Gin martini, dry, up with a twist" or "Vodka martini, dirty, up with olives"
+                        </p>
+                    </div>
+                </div>
+            `,
+            examples: [
+                "Print or screenshot this page for quick reference",
+                "Default: stirred up, gin or vodka per guest, dry unless specified",
+                "When vague: walk through the decision tree one question at a time"
+            ],
+            showExamples: false,
+            exercises: []
         }
     ]
 };

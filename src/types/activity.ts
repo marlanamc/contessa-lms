@@ -102,6 +102,8 @@ export interface InteractiveGuideSection {
     formula?: FormulaPart[];
     examples?: string[];
     showExamples?: boolean; // Control whether to display examples (default: true if examples exist)
+    /** 'flow' = integrated list style matching THE FLOW blocks; 'default' = card-based layout */
+    exampleStyle?: "default" | "flow";
     exercises?: Exercise[];
     usageMeanings?: UsageMeaning[]; // For meaning sections
     comparison?: {

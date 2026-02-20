@@ -9,6 +9,8 @@ import { Lightbulb, Sparkles } from "lucide-react";
 interface ExampleBoxProps {
     examples: string[];
     formulaParts?: FormulaPart[];
+    /** 'flow' = integrated list style matching THE FLOW blocks; 'default' = card-based layout */
+    variant?: "default" | "flow";
 }
 
 function splitExampleAndTakeaway(example: string) {
@@ -26,7 +28,32 @@ function splitExampleAndTakeaway(example: string) {
     return { sentence: example.trim(), takeaway: null as string | null };
 }
 
-export function ExampleBox({ examples, formulaParts }: ExampleBoxProps) {
+export function ExampleBox({ examples, formulaParts, variant = "default" }: ExampleBoxProps) {
+    if (variant === "flow") {
+        return (
+            <div className="my-6 rounded-lg overflow-hidden bg-[#fef9f3] border-l-4 border-secondary">
+                <div className="px-6 py-5">
+                    <p className="text-xs uppercase tracking-[0.15em] text-secondary font-semibold mb-3">
+                        Examples
+                    </p>
+                    <ol className="list-decimal list-inside space-y-2 m-0 pl-1 text-text-muted font-body text-[0.95rem] leading-relaxed">
+                        {examples.map((example, index) => {
+                            const { sentence, takeaway } = splitExampleAndTakeaway(example);
+                            return (
+                                <li key={index} className="text-text">
+                                    <span className="font-medium text-text">{sentence}</span>
+                                    {takeaway && (
+                                        <span className="text-text-muted italic"> — {takeaway}</span>
+                                    )}
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <motion.section
             className="example-box relative my-4 overflow-visible"

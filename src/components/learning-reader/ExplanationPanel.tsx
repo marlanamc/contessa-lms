@@ -77,7 +77,11 @@ export const ExplanationPanel = React.memo(function ExplanationPanel({
 
                 {/* Examples */}
                 {section.showExamples !== false && section.examples && section.examples.length > 0 && (
-                    <ExampleBox examples={section.examples} formulaParts={section.formula} />
+                    <ExampleBox
+                        examples={section.examples}
+                        formulaParts={section.formula}
+                        variant={section.exampleStyle ?? "default"}
+                    />
                 )}
 
                 {/* Future Choice Flow */}
