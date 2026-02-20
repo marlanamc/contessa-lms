@@ -10,6 +10,17 @@ interface Props {
     onClose?: () => void;
 }
 
+function shouldIgnoreGlobalKeydown(target: EventTarget | null): boolean {
+    if (!(target instanceof HTMLElement)) return false;
+
+    if (target.isContentEditable) return true;
+
+    const interactiveTags = new Set(["INPUT", "TEXTAREA", "SELECT", "OPTION"]);
+    if (interactiveTags.has(target.tagName)) return true;
+
+    return Boolean(target.closest("[contenteditable='true'], [role='textbox'], [data-prevent-global-nav='true']"));
+}
+
 export default function InteractiveGuideViewer({ content, title, onClose }: Props) {
     const [currentStep, setCurrentStep] = useState(0);
     const sections = content.sections || [];
@@ -21,10 +32,19 @@ export default function InteractiveGuideViewer({ content, title, onClose }: Prop
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+            if (shouldIgnoreGlobalKeydown(e.target)) return;
+
             if (e.key === "ArrowRight") {
-                if (currentStep < totalSteps - 1) setCurrentStep(prev => prev + 1);
+                if (currentStep < totalSteps - 1) {
+                    e.preventDefault();
+                    setCurrentStep(prev => prev + 1);
+                }
             } else if (e.key === "ArrowLeft") {
-                if (currentStep > 0) setCurrentStep(prev => prev - 1);
+                if (currentStep > 0) {
+                    e.preventDefault();
+                    setCurrentStep(prev => prev - 1);
+                }
             } else if (e.key === "Escape" && onClose) {
                 onClose();
             }
@@ -299,4 +319,3 @@ function ExerciseGroup({ exercise, index }: { exercise: Exercise, index: number 
         </div>
     );
 }
-

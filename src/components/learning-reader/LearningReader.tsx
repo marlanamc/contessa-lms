@@ -667,7 +667,7 @@ export function LearningReader({ content, onComplete, completionKey, activityId 
                                         ref={practicePanelRef}
                                         tabIndex={-1}
                                         aria-live="polite"
-                                        className="outline-none"
+                                        className="rounded-xl outline-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
                                     >
                                         <PracticePanel
                                             section={effectiveSection!}

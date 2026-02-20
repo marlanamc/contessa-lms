@@ -89,3 +89,4 @@ ESOL_LMS/
 
 # temporary documentation
 vocab-comparison.md
+.env*.local
