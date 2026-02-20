@@ -13,6 +13,7 @@ import { PointsToast } from "@/components/ui/PointsToast";
 import Link from "next/link";
 import { saveActivityProgress } from "@/lib/activityProgress";
 import type { ExerciseCompletionInfo } from "./exercises/ExerciseSection";
+import { ensureSectionHasExercises } from "@/lib/interactive-guide-exercises";
 
 interface LearningReaderProps {
     content: InteractiveGuideContent;
@@ -317,11 +318,8 @@ export function LearningReader({ content, onComplete, completionKey, activityId 
 
     const effectiveSection: InteractiveGuideSection | null = useMemo(() => {
         if (!currentSection) return null;
-        return {
-            ...currentSection,
-            exercises: currentSection.exercises || [],
-        };
-    }, [currentSection]);
+        return ensureSectionHasExercises(currentSection, currentSectionIndex);
+    }, [currentSection, currentSectionIndex]);
 
     const currentHasExercises = !!effectiveSection?.exercises && effectiveSection.exercises.length > 0;
     const practiceUnlocked = currentHasExercises

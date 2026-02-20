@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import type { InteractiveGuideContent, FormulaPart, Exercise } from "@/types/activity";
 import { BackButton } from "@/components/ui/BackButton";
+import { ensureSectionHasExercises } from "@/lib/interactive-guide-exercises";
 
 interface Props {
     content: InteractiveGuideContent;
@@ -23,7 +24,9 @@ function shouldIgnoreGlobalKeydown(target: EventTarget | null): boolean {
 
 export default function InteractiveGuideViewer({ content, title, onClose }: Props) {
     const [currentStep, setCurrentStep] = useState(0);
-    const sections = content.sections || [];
+    const sections = (content.sections || []).map((section, index) =>
+        ensureSectionHasExercises(section, index)
+    );
     const totalSteps = sections.length;
     const currentSection = sections[currentStep];
     const canGoPrev = currentStep > 0;
