@@ -23,6 +23,10 @@ export default function ServiceWorkerRegistration() {
         }
       };
 
+      const activateWaitingWorker = (worker: ServiceWorker) => {
+        worker.postMessage({ type: 'SKIP_WAITING' });
+      };
+
       navigator.serviceWorker
         .register('/sw.js', { updateViaCache: 'none' })
         .then((reg) => {
@@ -32,11 +36,7 @@ export default function ServiceWorkerRegistration() {
           // Check if there's already a waiting service worker
           if (reg.waiting && navigator.serviceWorker.controller) {
             console.log('[SW] Update waiting on page load');
-            window.dispatchEvent(
-              new CustomEvent('swUpdateAvailable', {
-                detail: { waitingWorker: reg.waiting }
-              })
-            );
+            activateWaitingWorker(reg.waiting);
           }
 
           // Listen for updates
@@ -50,11 +50,7 @@ export default function ServiceWorkerRegistration() {
                   navigator.serviceWorker.controller
                 ) {
                   console.log('[SW] New version available!');
-                  window.dispatchEvent(
-                    new CustomEvent('swUpdateAvailable', {
-                      detail: { waitingWorker: newWorker }
-                    })
-                  );
+                  activateWaitingWorker(newWorker);
                 }
               });
             }
@@ -98,5 +94,4 @@ export default function ServiceWorkerRegistration() {
 
   return null;
 }
-
 

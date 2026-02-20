@@ -1,6 +1,6 @@
 // Service Worker for Class Companion PWA
 // Cache version is based on build time - auto-increments on each deployment
-const CACHE_VERSION = '2024-12-17-v1'; // Update this with each deployment
+const CACHE_VERSION = '2025-02-20-v1'; // Bump on deploy to clear old caches
 const CACHE_NAME = `class-companion-${CACHE_VERSION}`;
 
 // Only cache essential shell files - content should be network-first
@@ -28,7 +28,8 @@ self.addEventListener('install', (event) => {
         console.log('[SW] Cache failed:', err);
       })
   );
-  // Don't skip waiting automatically - let user decide when to update
+  // Activate new SW immediately so deploys pick up fresh assets without manual refresh.
+  self.skipWaiting();
 });
 
 // Listen for messages from app
@@ -74,6 +75,13 @@ self.addEventListener('fetch', (event) => {
 
   // Never cache the service worker file itself
   if (url.pathname === '/sw.js') {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Do not cache Next.js build assets. They are content-hashed and should always come from network
+  // to avoid stale CSS/JS after deployments.
+  if (url.pathname.startsWith('/_next/static/') || url.pathname.startsWith('/_next/image')) {
     event.respondWith(fetch(event.request));
     return;
   }
@@ -143,5 +151,4 @@ self.addEventListener('fetch', (event) => {
       })
   );
 });
-
 
