@@ -4,6 +4,7 @@ import { signIn, type SignInResponse } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { clearServiceWorkerCache } from "@/lib/clearCache";
+import { Button } from "@/components/ui/Button";
 
 export default function LoginForm() {
     const [username, setUsername] = useState("");
@@ -18,9 +19,8 @@ export default function LoginForm() {
         setIsLoading(true);
 
         try {
-            // Add timeout to prevent hanging
             const timeoutPromise: Promise<SignInResponse | undefined> = new Promise((_, reject) =>
-                setTimeout(() => reject(new Error('Login timeout')), 10000)
+                setTimeout(() => reject(new Error("Login timeout")), 10000)
             );
 
             const signInPromise = signIn("credentials", {
@@ -32,19 +32,18 @@ export default function LoginForm() {
             const result = await Promise.race([signInPromise, timeoutPromise]);
 
             if (result?.error) {
-                console.error('[Login] Error:', result.error);
-                setError(`Invalid credentials. Please check your username and password.`);
+                console.error("[Login] Error:", result.error);
+                setError("Invalid credentials. Please check your username and password.");
             } else if (result?.ok) {
-                // Clear PWA cache to ensure fresh content for this user (important for shared computers)
                 await clearServiceWorkerCache();
                 router.push("/dashboard");
                 router.refresh();
             } else {
                 setError("Login failed. Please try again.");
             }
-        } catch (error: unknown) {
-            console.error('[Login] Exception:', error);
-            if (error instanceof Error && error.message === 'Login timeout') {
+        } catch (err: unknown) {
+            console.error("[Login] Exception:", err);
+            if (err instanceof Error && err.message === "Login timeout") {
                 setError("Login is taking too long. Please check your connection and try again.");
             } else {
                 setError("An error occurred. Please try again.");
@@ -55,10 +54,10 @@ export default function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 w-full">
-            <div className="border rounded-2xl p-6 space-y-6" style={{ backgroundColor: '#ffffff', borderColor: '#d9cfc0', boxShadow: '0 4px 12px rgba(43, 58, 74, 0.1), 0 2px 4px rgba(43, 58, 74, 0.06)' }}>
+        <form onSubmit={handleSubmit} className="w-full">
+            <div className="bg-white border border-border shadow-sm rounded-xl p-6 space-y-5">
                 <div>
-                    <label htmlFor="username" className="block text-sm font-semibold mb-2" style={{ color: '#2b3a4a' }}>
+                    <label htmlFor="username" className="block text-sm font-medium text-text mb-1.5">
                         Username
                     </label>
                     <input
@@ -68,23 +67,19 @@ export default function LoginForm() {
                         autoComplete="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="username…"
-                        className="w-full px-4 py-3 border-2 rounded-xl transition-[border-color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2"
-                        style={{
-                            borderColor: '#d9cfc0',
-                            color: '#2b3a4a',
-                            backgroundColor: '#ffffff',
-                            fontSize: '16px'
-                        }}
-                        onFocus={(e) => e.target.style.borderColor = '#d97757'}
-                        onBlur={(e) => e.target.style.borderColor = '#d9cfc0'}
+                        placeholder="Enter your username"
+                        className="w-full px-4 py-3 text-base text-text bg-white border border-border rounded-lg
+                            placeholder:text-text-light
+                            focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary
+                            transition-[border-color,box-shadow] duration-150
+                            aria-[invalid=true]:border-error aria-[invalid=true]:focus:ring-error/40"
                         aria-invalid={Boolean(error)}
                         aria-describedby={error ? "login-form-error" : undefined}
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="password" className="block text-sm font-semibold mb-2" style={{ color: '#2b3a4a' }}>
+                    <label htmlFor="password" className="block text-sm font-medium text-text mb-1.5">
                         Password
                     </label>
                     <input
@@ -94,42 +89,35 @@ export default function LoginForm() {
                         autoComplete="current-password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="••••••••"
-                        className="w-full px-4 py-3 border-2 rounded-xl transition-[border-color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2"
-                        style={{
-                            borderColor: '#d9cfc0',
-                            color: '#2b3a4a',
-                            backgroundColor: '#ffffff',
-                            fontSize: '16px'
-                        }}
-                        onFocus={(e) => e.target.style.borderColor = '#d97757'}
-                        onBlur={(e) => e.target.style.borderColor = '#d9cfc0'}
+                        placeholder="Enter your password"
+                        className="w-full px-4 py-3 text-base text-text bg-white border border-border rounded-lg
+                            placeholder:text-text-light
+                            focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary
+                            transition-[border-color,box-shadow] duration-150
+                            aria-[invalid=true]:border-error aria-[invalid=true]:focus:ring-error/40"
                         aria-invalid={Boolean(error)}
                         aria-describedby={error ? "login-form-error" : undefined}
                         required
                     />
                 </div>
                 {error && (
-                    <div className="border-2 rounded-lg p-3" style={{ backgroundColor: 'rgba(231, 111, 81, 0.1)', borderColor: '#e76f51' }}>
-                        <p id="login-form-error" role="alert" className="text-sm font-medium" style={{ color: '#8b1c31' }}>
-                            {error}
-                        </p>
+                    <div
+                        id="login-form-error"
+                        role="alert"
+                        className="rounded-lg border border-error/30 bg-error/5 px-4 py-3"
+                    >
+                        <p className="text-sm font-medium text-error">{error}</p>
                     </div>
                 )}
-                <button
+                <Button
                     type="submit"
+                    variant="primary"
+                    fullWidth
                     disabled={isLoading}
-                    className="w-full py-3 px-4 rounded-xl font-semibold text-white transition-[background-color,transform] duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2"
-                    style={{
-                        backgroundColor: isLoading ? '#6b7280' : '#a14d33',
-                        boxShadow: '0 1px 3px rgba(43, 58, 74, 0.08), 0 1px 2px rgba(43, 58, 74, 0.04)',
-                        cursor: isLoading ? 'not-allowed' : 'pointer'
-                    }}
-                    onMouseOver={(e) => !isLoading && (e.currentTarget.style.backgroundColor = '#8f3f2a')}
-                    onMouseOut={(e) => !isLoading && (e.currentTarget.style.backgroundColor = '#a14d33')}
+                    className="mt-2"
                 >
-                    {isLoading ? 'Signing in…' : 'Sign In'}
-                </button>
+                    {isLoading ? "Signing in…" : "Sign In"}
+                </Button>
             </div>
         </form>
     );
